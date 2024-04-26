@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像表示テスト</title>
+  <style>
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>画像表示テスト</h1>
+  <img id="myImage" src="" alt="テスト画像">
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script>
+    // 画像のURLを指定
+    const imageUrl = "https://drive.google.com/uc?export=view&id=1XoJZ8vZNGg2onPrDGMaQHgYQFvx_WJ59";
+
+    // LIFFアプリの初期化
+    liff.init({
+      liffId: '2004741789'
+    })
+    .then(() => {
+      // LIFFアプリの準備が完了した後の処理
+      displayImage();
+    })
+    .catch((err) => {
+      console.error('LIFF initialization failed', err);
+    });
+
+    // 画像を表示する関数
+    function displayImage() {
+      const imageElement = document.getElementById('myImage');
+      imageElement.src = imageUrl;
+    }
+  </script>
+</body>
+</html>
